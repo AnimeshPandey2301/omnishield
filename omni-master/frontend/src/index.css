@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* ─── Global Resets & Base ─── */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --color-bg:       #0a0f1a;
+  --color-surface:  #0f172a;
+  --color-border:   rgba(99,102,241,0.18);
+  --color-brand:    #6366f1;
+  --color-danger:   #ef4444;
+  --color-warning:  #f59e0b;
+  --color-safe:     #10b981;
+  --font-main:      "Inter", system-ui, sans-serif;
+  --font-mono:      "JetBrains Mono", monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+
+/* ─── Glass Card ─── */
+.glass-card {
+  background: rgba(15, 23, 42, 0.70);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+}
+
+/* ─── Gradient text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Risk glow effects ─── */
+.glow-danger  { box-shadow: 0 0 20px rgba(239,68,68,0.4);  }
+.glow-warning { box-shadow: 0 0 20px rgba(245,158,11,0.4); }
+.glow-safe    { box-shadow: 0 0 20px rgba(16,185,129,0.4); }
+.glow-brand   { box-shadow: 0 0 20px rgba(99,102,241,0.4); }
+
+/* ─── Animated score ring ─── */
+.score-ring {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Button base ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #818cf8, #6366f1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(99,102,241,0.4);
+}
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+/* ─── Leaflet overrides ─── */
+.leaflet-container {
+  background: #0a0f1a !important;
+  border-radius: 12px;
+}
+.leaflet-tile {
+  filter: brightness(0.85) saturate(0.8) contrast(1.1);
+}
+.leaflet-control-zoom a {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  border-color: #334155 !important;
+}
+.leaflet-control-zoom a:hover { background: #334155 !important; }
+
+/* ─── Upload dropzone ─── */
+.dropzone {
+  border: 2px dashed rgba(99,102,241,0.4);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.dropzone:hover, .dropzone.active {
+  border-color: #6366f1;
+  background: rgba(99,102,241,0.06);
+}
+
+/* ─── Progress bar ─── */
+.progress-bar {
+  height: 8px;
+  border-radius: 100px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.06);
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Badge ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-danger  { background: rgba(239,68,68,0.15);  color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+.badge-warning { background: rgba(245,158,11,0.15);  color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+.badge-safe    { background: rgba(16,185,129,0.15);  color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+.badge-info    { background: rgba(99,102,241,0.15);  color: #818cf8; border: 1px solid rgba(99,102,241,0.3); }
+
+/* ─── Alert flash animation ─── */
+@keyframes alertFlash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.alert-flash { animation: alertFlash 1.5s ease-in-out infinite; }
+
+/* ─── Grid background ─── */
+.grid-bg {
+  background-image: linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}

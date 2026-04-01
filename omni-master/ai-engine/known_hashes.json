@@ -1,0 +1,22 @@
+[
+  {
+    "hash": "f8e0c4a2b6d1e3f5",
+    "label": "Pirated Movie Thumbnail"
+  },
+  {
+    "hash": "a1b2c3d4e5f60718",
+    "label": "Fraudulent Document Scan"
+  },
+  {
+    "hash": "9f8e7d6c5b4a3210",
+    "label": "Stolen Brand Logo"
+  },
+  {
+    "hash": "1234567890abcdef",
+    "label": "Blacklisted Profile Image"
+  },
+  {
+    "hash": "fedcba9876543210",
+    "label": "Malware Payload Screenshot"
+  }
+]
